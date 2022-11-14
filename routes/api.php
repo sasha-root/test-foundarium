@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Api\Domain\Common\Middleware\ApiExceptionRenderMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware('api')
+Route::middleware(['api', ApiExceptionRenderMiddleware::class])
     ->group(function () {
         Route::group(['namespace' => '\Api\UI\User\Http\Controllers'], function(){
             Route::get('users', 'FetchAllUserController');
@@ -36,6 +36,15 @@ Route::middleware('api')
                 Route::get('cars/{car_id}', 'FetchOneCarController');
                 Route::put('cars/{car_id}', 'UpdateCarController');
                 Route::delete('cars/{car_id}', 'DeleteCarController');
+            });
+        });
+
+        Route::group(['namespace' => '\Api\UI\CarRental\Http\Controllers'], function(){
+            Route::get('cars-rental', 'FetchAllCarRentalController');
+            Route::post('cars-rental', 'CreateCarRentalController');
+
+            Route::group(['where' => ['car_id' => '[0-9]+']], function () {
+                Route::delete('cars-rental/{car_rental_id}', 'DeleteCarRentalController');
             });
         });
     });

@@ -6,6 +6,9 @@ use Api\Application\User\Command\Commands\DeleteUserCommand;
 use Api\Application\User\Command\Handlers\DeleteUserHandler;
 use Api\UI\Common\Http\Controllers\Controller;
 use Api\UI\User\Http\Requests\DeleteUserRequest;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
+use Api\Domain\User\Exception\UserNotFoundException;
 
 class DeleteUserController extends Controller
 {
@@ -15,9 +18,15 @@ class DeleteUserController extends Controller
 
     }
 
-    public function __invoke(DeleteUserRequest $request)
+    /**
+     * @param DeleteUserRequest $request
+     * @return JsonResponse
+     * @throws UserNotFoundException
+     */
+    public function __invoke(DeleteUserRequest $request): JsonResponse
     {
         $command = new DeleteUserCommand($request->getUserId());
-        return $this->handler->handle($command);
+        $this->handler->handle($command);
+        return response()->json(null, ResponseAlias::HTTP_NO_CONTENT);
     }
 }

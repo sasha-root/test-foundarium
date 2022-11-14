@@ -12,7 +12,13 @@ class PostCarRequest extends FormRequest
         return [
             'model' => ['required', 'string', 'max:100'],
             'name' => ['required', 'string', 'max:100'],
-            'registration_plate' => ['required', 'string', 'max:9', 'regex:/^[АВЕКМНОРСТУХ]\d{3}(?<!000)[АВЕКМНОРСТУХ]{2}\d{2,3}$/ui']
+            'registration_plate' => [
+                'required',
+                'string',
+                'max:9',
+                'regex:/^[АВЕКМНОРСТУХ]\d{3}(?<!000)[АВЕКМНОРСТУХ]{2}\d{2,3}$/ui',
+                'unique:cars,registration_plate'
+            ]
         ];
     }
 

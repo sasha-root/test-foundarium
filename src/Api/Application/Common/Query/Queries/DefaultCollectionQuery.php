@@ -2,18 +2,21 @@
 
 namespace Api\Application\Common\Query\Queries;
 
+use Api\Domain\Common\Model\PaginationFilter;
+
 class DefaultCollectionQuery
 {
-    private ?array $pagination;
+    private PaginationFilter $pagination;
 
     private ?string $orderBy;
 
     public function __construct(array $data)
     {
-
+        $this->orderBy = $data['order'] ?? null;
+        $this->pagination = PaginationFilter::createFromArray($data['pagination'] ?? []);
     }
 
-    public function getPagination(): ?array
+    public function getPagination(): PaginationFilter
     {
         return $this->pagination;
     }

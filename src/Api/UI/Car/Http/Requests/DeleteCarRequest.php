@@ -8,18 +8,11 @@ class DeleteCarRequest extends FormRequest
 {
     public function rules(): array
     {
-        return [
-            'car_id' => ['required', 'integer', 'exists:cars,id']
-        ];
-    }
-
-    public function prepareForValidation(): void
-    {
-        $this->merge(['car_id' => $this->route('car_id')]);
+        return [];
     }
 
     public function getCarId(): int
     {
-        return (int)$this->json('car_id');
+        return (int)$this->route('car_id');
     }
 }

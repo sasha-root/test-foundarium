@@ -14,7 +14,7 @@ class PutUserRequest extends PostUserRequest
 
         return [...$parentRules, ...[
             'user_id' => ['required', 'integer', 'exists:users,id'],
-            'email' => ['required', 'string', 'unique:users', 'max:100']
+            'email' => ['required', 'string', 'unique:users,email,' . $this->json('user_id'), 'max:100']
         ]];
     }
 

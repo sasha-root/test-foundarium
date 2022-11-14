@@ -6,6 +6,9 @@ use Api\UI\Common\Http\Controllers\Controller;
 use Api\UI\Car\Http\Requests\DeleteCarRequest;
 use Api\Application\Car\Command\Commands\DeleteCarCommand;
 use Api\Application\Car\Command\Handlers\DeleteCarHandler;
+use Api\Domain\Car\Exception\CarNotFoundException;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
+use Illuminate\Http\JsonResponse;
 
 class DeleteCarController extends Controller
 {
@@ -15,9 +18,15 @@ class DeleteCarController extends Controller
 
     }
 
-    public function __invoke(DeleteCarRequest $request)
+    /**
+     * @param DeleteCarRequest $request
+     * @return JsonResponse
+     * @throws CarNotFoundException
+     */
+    public function __invoke(DeleteCarRequest $request): JsonResponse
     {
         $command = new DeleteCarCommand($request->getCarId());
-        return $this->handler->handle($command);
+        $this->handler->handle($command);
+        return response()->json(null, ResponseAlias::HTTP_NO_CONTENT);
     }
 }

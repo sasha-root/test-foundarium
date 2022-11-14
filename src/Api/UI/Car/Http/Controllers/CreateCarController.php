@@ -2,10 +2,12 @@
 
 namespace Api\UI\Car\Http\Controllers;
 
+use Api\UI\Common\Http\Controllers\Controller;
 use Api\Application\Car\Command\Commands\CreateCarCommand;
 use Api\Application\Car\Command\Handlers\CreateCarHandler;
 use Api\UI\Car\Http\Requests\PostCarRequest;
-use Api\UI\Common\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class CreateCarController extends Controller
 {
@@ -15,9 +17,13 @@ class CreateCarController extends Controller
 
     }
 
-    public function __invoke(PostCarRequest $request)
+    /**
+     * @param PostCarRequest $request
+     * @return JsonResponse
+     */
+    public function __invoke(PostCarRequest $request): JsonResponse
     {
         $command = new CreateCarCommand($request);
-        return $this->handler->handle($command);
+        return response()->json($this->handler->handle($command), ResponseAlias::HTTP_CREATED);
     }
 }

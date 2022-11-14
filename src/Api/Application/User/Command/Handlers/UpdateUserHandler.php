@@ -3,11 +3,35 @@
 namespace Api\Application\User\Command\Handlers;
 
 use Api\Application\User\Command\Commands\UpdateUserCommand;
+use Api\Application\User\Query\Views\UserView;
+use Api\Domain\User\Exception\UserNotFoundException;
+use Api\Domain\User\Model\User;
+use Api\Infrastructure\User\Repository\UserRepository;
 
 class UpdateUserHandler
 {
-    public function handle(UpdateUserCommand $command)
+    public function __construct(
+        private UserRepository $repository
+    ) {
+
+    }
+
+    /**
+     * @throws UserNotFoundException
+     */
+    public function handle(UpdateUserCommand $command): UserView
     {
-        echo "<pre>"; print_r($command); die;
+        if (!$user = $this->repository->findOneById($command->getId())) {
+            throw new UserNotFoundException();
+        }
+
+        /** @var User $user */
+        $user->updateUser(
+            $command->getName(),
+            $command->getEmail()
+        );
+
+        $user = $this->repository->store($user);
+        return new UserView($user);
     }
 }

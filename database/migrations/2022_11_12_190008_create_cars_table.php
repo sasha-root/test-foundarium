@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('model', 100);
             $table->string('name', 100);
-            $table->string('registration_plate', 9);
+            $table->string('registration_plate', 9)->unique();
             $table->softDeletes();
             $table->timestamps();
         });

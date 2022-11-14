@@ -3,11 +3,27 @@
 namespace Api\Application\Car\Command\Handlers;
 
 use Api\Application\Car\Command\Commands\CreateCarCommand;
+use Api\Application\Car\Query\Views\CarView;
+use Api\Domain\Car\Model\Car;
+use Api\Infrastructure\Car\Repository\CarRepository;
 
 class CreateCarHandler
 {
-    public function handle(CreateCarCommand $command)
+    public function __construct(
+        private CarRepository $repository
+    ) {
+
+    }
+
+    public function handle(CreateCarCommand $command): CarView
     {
-        echo "<pre>"; print_r($command); die;
+        $car = Car::createCar(
+            $command->getModel(),
+            $command->getName(),
+            $command->getRegistrationPlate()
+        );
+
+        $car = $this->repository->store($car);
+        return new CarView($car);
     }
 }

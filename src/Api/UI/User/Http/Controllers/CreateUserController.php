@@ -6,6 +6,8 @@ use Api\UI\Common\Http\Controllers\Controller;
 use Api\UI\User\Http\Requests\PostUserRequest;
 use Api\Application\User\Command\Commands\CreateUserCommand;
 use Api\Application\User\Command\Handlers\CreateUserHandler;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class CreateUserController extends Controller
 {
@@ -17,11 +19,11 @@ class CreateUserController extends Controller
 
     /**
      * @param PostUserRequest $request
-     * @return
+     * @return JsonResponse
      */
-    public function __invoke(PostUserRequest $request)
+    public function __invoke(PostUserRequest $request): JsonResponse
     {
         $command = new CreateUserCommand($request);
-        return $this->handler->handle($command);
+        return response()->json($this->handler->handle($command), ResponseAlias::HTTP_CREATED);
     }
 }
