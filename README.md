@@ -49,8 +49,9 @@ C помощью laravel сделать api для управления спис
 
 ````
 1. scp -r ./.env.example ./.env.testing
-2. scp -r ./docker/docker-compose.yml ./docker-compose-testing.yml
-3. sh run-local-test.sh
+2. Set environments 
+3. scp -r ./docker/docker-compose.yml ./docker-compose-testing.yml
+4. sh run-local-test.sh
 ````
 
 
