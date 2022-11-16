@@ -12,4 +12,14 @@ class EloquentCarRentalRepository extends EloquentRepository implements CarRenta
     {
         return Model::class;
     }
+
+    public function existsByCarId(int $carId): bool
+    {
+        return $this->model->where(['car_id' => $carId])->exists();
+    }
+
+    public function existsByUserId(int $userId): bool
+    {
+        return $this->model->where(['user_id' => $userId])->exists();
+    }
 }

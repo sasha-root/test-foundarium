@@ -6,7 +6,7 @@ use Api\Domain\Common\Exception\DomainException;
 
 class UserNotFoundException extends DomainException
 {
-    protected $message = "User not found.";
+    protected $message = 'User not found.';
 
     protected $code = 404;
 }

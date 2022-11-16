@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\FlareClient\Api;
 
 class DomainServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,13 @@ class DomainServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            \Api\Domain\Car\Repository\CarRepository::class,
+            \Api\Domain\Car\Service\CarService::class,
             \Api\Infrastructure\Car\Service\EloquentCarService::class
+        );
+
+        $this->app->bind(
+            \Api\Domain\User\Service\UserService::class,
+            \Api\Infrastructure\User\Service\EloquentUserService::class
         );
     }
 }

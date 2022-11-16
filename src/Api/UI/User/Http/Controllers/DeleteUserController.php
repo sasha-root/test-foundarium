@@ -9,6 +9,7 @@ use Api\UI\User\Http\Requests\DeleteUserRequest;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 use Api\Domain\User\Exception\UserNotFoundException;
+use Api\Domain\User\Exception\UserNotAvailableDeleteException;
 
 class DeleteUserController extends Controller
 {
@@ -21,7 +22,7 @@ class DeleteUserController extends Controller
     /**
      * @param DeleteUserRequest $request
      * @return JsonResponse
-     * @throws UserNotFoundException
+     * @throws UserNotFoundException|UserNotAvailableDeleteException
      */
     public function __invoke(DeleteUserRequest $request): JsonResponse
     {

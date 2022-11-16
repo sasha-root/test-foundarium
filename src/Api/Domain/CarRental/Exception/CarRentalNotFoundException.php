@@ -6,7 +6,7 @@ use Api\Domain\Common\Exception\DomainException;
 
 class CarRentalNotFoundException extends DomainException
 {
-    protected $message = "CarRental not found.";
+    protected $message = 'CarRental not found.';
 
     protected $code = 404;
 }

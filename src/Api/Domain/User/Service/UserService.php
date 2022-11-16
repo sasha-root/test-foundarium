@@ -4,5 +4,5 @@ namespace Api\Domain\User\Service;
 
 interface UserService
 {
-    public function isAvailableDelete(): bool;
+    public function isAvailableDelete(int $userId): bool;
 }

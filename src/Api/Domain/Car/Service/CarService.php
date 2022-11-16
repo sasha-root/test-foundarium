@@ -4,5 +4,5 @@ namespace Api\Domain\Car\Service;
 
 interface CarService
 {
-    public function isAvailableDelete(): bool;
+    public function isAvailableDelete(int $carId): bool;
 }

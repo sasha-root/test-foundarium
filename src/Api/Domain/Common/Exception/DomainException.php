@@ -8,7 +8,7 @@ abstract class DomainException extends \Exception
 
     protected $code;
 
-    public function __construct(string $message = "", int $code = 0, \Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, \Throwable $previous = null)
     {
         $args = func_get_args();
         parent::__construct($args[0] ?? $this->message, $this->code, $previous);

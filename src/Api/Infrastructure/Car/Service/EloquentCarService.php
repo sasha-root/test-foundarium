@@ -3,11 +3,18 @@
 namespace Api\Infrastructure\Car\Service;
 
 use Api\Domain\Car\Service\CarService;
+use Api\Domain\CarRental\Repository\CarRentalRepository;
 
 class EloquentCarService implements CarService
 {
-    public function isAvailableDelete(): bool
+    public function __construct(
+        private CarRentalRepository $carRentalRepository
+    ) {
+
+    }
+
+    public function isAvailableDelete(int $carId): bool
     {
-        
+        return !$this->carRentalRepository->existsByCarId($carId);
     }
 }
