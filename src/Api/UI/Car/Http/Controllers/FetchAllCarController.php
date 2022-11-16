@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 class FetchAllCarController extends Controller
 {
     public function __construct(
-        private FetchCarCollectionHandler $handler
+        private readonly FetchCarCollectionHandler $handler
     ) {
 
     }

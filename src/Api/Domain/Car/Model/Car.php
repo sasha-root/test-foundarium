@@ -3,7 +3,7 @@
 namespace Api\Domain\Car\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Api\Domain\Common\Model\EloquentBaseModal;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $name
  * @property string $registration_plate
  */
-class Car extends Model
+class Car extends EloquentBaseModal
 {
     use HasFactory, SoftDeletes;
 

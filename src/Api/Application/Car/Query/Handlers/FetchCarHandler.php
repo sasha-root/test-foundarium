@@ -5,12 +5,12 @@ namespace Api\Application\Car\Query\Handlers;
 use Api\Application\Car\Query\Queries\FetchCarQuery;
 use Api\Application\Car\Query\Views\CarView;
 use Api\Domain\Car\Exception\CarNotFoundException;
-use Api\Infrastructure\Car\Repository\EloquentCarRepository;
+use Api\Domain\Car\Repository\CarRepository;
 
 class FetchCarHandler
 {
     public function __construct(
-        private EloquentCarRepository $repository
+        private readonly CarRepository $repository
     ) {
 
     }

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 class CreateUserController extends Controller
 {
     public function __construct(
-        private CreateUserHandler $handler
+        private readonly CreateUserHandler $handler
     ) {
 
     }

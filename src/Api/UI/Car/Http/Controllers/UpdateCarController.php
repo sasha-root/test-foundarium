@@ -12,7 +12,7 @@ use Illuminate\Http\JsonResponse;
 class UpdateCarController extends Controller
 {
     public function __construct(
-        private UpdateCarHandler $handler
+        private readonly UpdateCarHandler $handler
     ) {
 
     }

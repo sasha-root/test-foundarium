@@ -10,7 +10,7 @@ use Api\Domain\CarRental\Model\CarRental;
 class CreateCarRentalHandler
 {
     public function __construct(
-        private CarRentalRepository $repository
+        private readonly CarRentalRepository $repository
     ) {
 
     }

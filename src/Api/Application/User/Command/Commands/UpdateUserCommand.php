@@ -8,9 +8,9 @@ class UpdateUserCommand extends CreateUpdateUserCommand
 {
     private int $id;
 
-    public function __construct(PutUserRequest $request, int $id)
+    public function __construct(PutUserRequest $request)
     {
-        $this->id = $id;
+        $this->id = $request->getUserId();
         parent::__construct($request);
     }
 

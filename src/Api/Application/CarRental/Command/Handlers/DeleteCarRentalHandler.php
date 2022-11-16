@@ -9,7 +9,7 @@ use Api\Infrastructure\CarRental\Repository\EloquentCarRentalRepository;
 class DeleteCarRentalHandler
 {
     public function __construct(
-        private EloquentCarRentalRepository $repository
+        private readonly EloquentCarRentalRepository $repository
     ) {
 
     }
@@ -17,7 +17,7 @@ class DeleteCarRentalHandler
     /**
      * @throws CarRentalNotFoundException
      */
-    public function handle(DeleteCarRentalCommand $command)
+    public function handle(DeleteCarRentalCommand $command): void
     {
         if (!$carRental = $this->repository->findOneById($command->getId())) {
             throw new CarRentalNotFoundException();

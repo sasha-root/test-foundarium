@@ -3,8 +3,8 @@
 namespace Api\Domain\CarRental\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Api\Domain\Common\Model\EloquentBaseModal;
 use Api\Domain\Car\Model\Car;
 use Api\Domain\User\Model\User;
 
@@ -17,7 +17,7 @@ use Api\Domain\User\Model\User;
  * @property-read Car $car
  * @property-read User $user
  */
-class CarRental extends Model
+class CarRental extends EloquentBaseModal
 {
     use HasFactory;
 

@@ -13,7 +13,7 @@ use Illuminate\Http\JsonResponse;
 class FetchOneCarController extends Controller
 {
     public function __construct(
-        private FetchCarHandler $handler
+        private readonly FetchCarHandler $handler
     ) {
 
     }

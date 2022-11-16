@@ -2,7 +2,7 @@
 
 namespace Api\Application\Car\Query\Queries;
 
-class FetchCarQuery
+class FetchCarQuery extends \Api\Infrastructure\Car\Repository\EloquentCarRepository
 {
     public function __construct(
         private int $id

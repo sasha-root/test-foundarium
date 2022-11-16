@@ -8,7 +8,7 @@ use Api\Domain\CarRental\Repository\CarRentalRepository;
 class EloquentCarService implements CarService
 {
     public function __construct(
-        private CarRentalRepository $carRentalRepository
+        private readonly CarRentalRepository $carRentalRepository
     ) {
 
     }

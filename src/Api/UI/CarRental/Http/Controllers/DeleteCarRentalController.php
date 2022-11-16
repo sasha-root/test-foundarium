@@ -13,7 +13,7 @@ use Api\Domain\CarRental\Exception\CarRentalNotFoundException;
 class DeleteCarRentalController extends Controller
 {
     public function __construct(
-        private DeleteCarRentalHandler $handler
+        private readonly DeleteCarRentalHandler $handler
     ) {
 
     }

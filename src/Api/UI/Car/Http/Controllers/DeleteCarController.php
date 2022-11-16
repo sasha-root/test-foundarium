@@ -14,7 +14,7 @@ use Illuminate\Http\JsonResponse;
 class DeleteCarController extends Controller
 {
     public function __construct(
-        private DeleteCarHandler $handler
+        private readonly DeleteCarHandler $handler
     ) {
 
     }

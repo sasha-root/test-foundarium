@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 class CreateCarRentalController extends Controller
 {
     public function __construct(
-        private CreateCarRentalHandler $handler
+        private readonly CreateCarRentalHandler $handler
     ) {
 
     }

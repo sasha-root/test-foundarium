@@ -12,7 +12,7 @@ use Api\Domain\User\Exception\UserNotFoundException;
 class FetchOneUserController extends Controller
 {
     public function __construct(
-        private FetchUserHandler $handler
+        private readonly FetchUserHandler $handler
     ) {
 
     }

@@ -8,7 +8,7 @@ use Api\Domain\User\Service\UserService;
 class EloquentUserService implements UserService
 {
     public function __construct(
-        private CarRentalRepository $carRentalRepository
+        private readonly CarRentalRepository $carRentalRepository
     ) {
 
     }

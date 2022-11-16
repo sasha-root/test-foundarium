@@ -12,8 +12,8 @@ use Api\Domain\Car\Exception\CarNotFoundException;
 class DeleteCarHandler
 {
     public function __construct(
-        private CarRepository $repository,
-        private CarService $service
+        private readonly CarRepository $repository,
+        private readonly CarService    $service
     ) {
 
     }

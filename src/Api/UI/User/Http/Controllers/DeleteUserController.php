@@ -14,7 +14,7 @@ use Api\Domain\User\Exception\UserNotAvailableDeleteException;
 class DeleteUserController extends Controller
 {
     public function __construct(
-        private DeleteUserHandler $handler
+        private readonly DeleteUserHandler $handler
     ) {
 
     }

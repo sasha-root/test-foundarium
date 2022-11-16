@@ -2,6 +2,7 @@
 
 namespace Api\Domain\User\Model;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,6 +15,9 @@ use Illuminate\Notifications\Notifiable;
  * @property string $name
  * @property string $email
  * @property-write string $password
+ * @method static Builder first()
+ * @method static Builder query()
+ * @method static Builder truncate()
  */
 class User extends Authenticatable
 {

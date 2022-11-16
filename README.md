@@ -36,13 +36,21 @@ C помощью laravel сделать api для управления спис
 ## Start Laravel sail
 
 ````
-0. composer install
-1. scp -r ./docker/docker-compose-sail.yml ./docker-compose.yml
-2. scp -r ./.env.example ./.env
-3. Set environments
-4. docker-compose up -d --build
-5. docker-compose exec app php artisan key:generate
-5. docker-compose exec app php artisan migrate 
+1. composer install
+2. scp -r ./docker/docker-compose-sail.yml ./docker-compose.yml
+3. scp -r ./.env.example ./.env
+4. Set environments
+5. docker-compose up -d --build
+6. docker-compose exec app php artisan key:generate
+7. docker-compose exec app php artisan migrate 
+````
+
+## Run test 
+
+````
+1. scp -r ./.env.example ./.env.testing
+2. scp -r ./docker/docker-compose.yml ./docker-compose-testing.yml
+3. sh run-local-test.sh
 ````
 
 

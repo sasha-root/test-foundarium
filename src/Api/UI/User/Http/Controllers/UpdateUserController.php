@@ -12,7 +12,7 @@ use Api\Domain\User\Exception\UserNotFoundException;
 class UpdateUserController extends Controller
 {
     public function __construct(
-        private UpdateUserHandler $handler
+        private readonly UpdateUserHandler $handler
     ) {
 
     }
@@ -24,7 +24,7 @@ class UpdateUserController extends Controller
      */
     public function __invoke(PutUserRequest $request): JsonResponse
     {
-        $command = new UpdateUserCommand($request, $request->getUserId());
+        $command = new UpdateUserCommand($request);
         return response()->json($this->handler->handle($command));
     }
 }

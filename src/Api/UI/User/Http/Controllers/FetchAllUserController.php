@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 class FetchAllUserController extends Controller
 {
     public function __construct(
-        private FetchUserCollectionHandler $handler
+        private readonly FetchUserCollectionHandler $handler
     ) {
 
     }
