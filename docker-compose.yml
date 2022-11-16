@@ -2,6 +2,7 @@ version: '3.5'
 services:
 
     app:
+        container_name: '${APP_NAME}-app'
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
             dockerfile: Dockerfile
@@ -25,6 +26,7 @@ services:
             - mysql
 
     mysql:
+        container_name: '${APP_NAME}-mysql'
         image: 'mysql:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
@@ -45,6 +47,7 @@ services:
             timeout: 5s
 
     adminer:
+        container_name: '${APP_NAME}-adminer'
         image: adminer
         restart: always
         ports:

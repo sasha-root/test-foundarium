@@ -6,7 +6,7 @@ use Api\Domain\CarRental\Repository\CarRentalRepository as CarRentalRepositoryIn
 use Api\Infrastructure\Common\Repository\EloquentRepository;
 use Api\Domain\CarRental\Model\CarRental as Model;
 
-class CarRentalRepository extends EloquentRepository implements CarRentalRepositoryInterface
+class EloquentCarRentalRepository extends EloquentRepository implements CarRentalRepositoryInterface
 {
     protected function getModelClass(): string
     {

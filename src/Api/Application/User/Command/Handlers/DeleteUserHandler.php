@@ -2,9 +2,9 @@
 
 namespace Api\Application\User\Command\Handlers;
 
+use Api\Domain\User\Repository\UserRepository;
 use Api\Application\User\Command\Commands\DeleteUserCommand;
 use Api\Domain\User\Exception\UserNotFoundException;
-use Api\Infrastructure\User\Repository\UserRepository;
 
 class DeleteUserHandler
 {

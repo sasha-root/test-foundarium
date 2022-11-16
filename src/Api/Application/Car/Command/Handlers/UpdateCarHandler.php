@@ -2,16 +2,17 @@
 
 namespace Api\Application\Car\Command\Handlers;
 
+use Api\Domain\Car\Repository\CarRepository;
 use Api\Application\Car\Command\Commands\UpdateCarCommand;
 use Api\Application\Car\Query\Views\CarView;
 use Api\Domain\Car\Exception\CarNotFoundException;
 use Api\Domain\Car\Model\Car;
-use Api\Infrastructure\Car\Repository\CarRepository;
+use Api\Infrastructure\Car\Repository\EloquentCarRepository;
 
 class UpdateCarHandler
 {
     public function __construct(
-        private CarRepository $repository
+        private EloquentCarRepository $repository
     ) {
 
     }

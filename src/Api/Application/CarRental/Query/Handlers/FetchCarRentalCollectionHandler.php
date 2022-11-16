@@ -3,13 +3,13 @@
 namespace Api\Application\CarRental\Query\Handlers;
 
 use Api\Application\CarRental\Query\Queries\FetchCarRentalCollectionQuery;
-use Api\Infrastructure\CarRental\Repository\CarRentalRepository;
+use Api\Infrastructure\CarRental\Repository\EloquentCarRentalRepository;
 use Api\Application\CarRental\Query\Collection\CarRentalCollection;
 
 class FetchCarRentalCollectionHandler
 {
     public function __construct(
-        private CarRentalRepository $repository
+        private EloquentCarRentalRepository $repository
     ) {
 
     }

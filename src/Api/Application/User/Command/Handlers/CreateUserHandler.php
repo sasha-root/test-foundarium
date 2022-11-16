@@ -2,10 +2,10 @@
 
 namespace Api\Application\User\Command\Handlers;
 
+use Api\Domain\User\Repository\UserRepository;
 use Api\Application\User\Command\Commands\CreateUserCommand;
 use Api\Application\User\Query\Views\UserView;
 use Api\Domain\User\Model\User;
-use Api\Infrastructure\User\Repository\UserRepository;
 
 class CreateUserHandler
 {

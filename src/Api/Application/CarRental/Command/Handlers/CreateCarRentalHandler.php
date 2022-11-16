@@ -2,10 +2,10 @@
 
 namespace Api\Application\CarRental\Command\Handlers;
 
+use Api\Domain\CarRental\Repository\CarRentalRepository;
 use Api\Application\CarRental\Command\Commands\CreateCarRentalCommand;
 use Api\Application\CarRental\Query\Views\CarRentalView;
 use Api\Domain\CarRental\Model\CarRental;
-use Api\Infrastructure\CarRental\Repository\CarRentalRepository;
 
 class CreateCarRentalHandler
 {

@@ -2,9 +2,9 @@
 
 namespace Api\Application\Car\Command\Handlers;
 
+use Api\Domain\Car\Repository\CarRepository;
 use Api\Application\Car\Command\Commands\DeleteCarCommand;
 use Api\Domain\Car\Exception\CarNotFoundException;
-use Api\Infrastructure\Car\Repository\CarRepository;
 
 class DeleteCarHandler
 {
@@ -17,7 +17,7 @@ class DeleteCarHandler
     /**
      * @throws CarNotFoundException
      */
-    public function handle(DeleteCarCommand $command)
+    public function handle(DeleteCarCommand $command): void
     {
         if (!$car = $this->repository->findOneById($command->getId())) {
             throw new CarNotFoundException();

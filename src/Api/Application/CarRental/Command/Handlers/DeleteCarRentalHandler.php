@@ -4,12 +4,12 @@ namespace Api\Application\CarRental\Command\Handlers;
 
 use Api\Application\CarRental\Command\Commands\DeleteCarRentalCommand;
 use Api\Domain\CarRental\Exception\CarRentalNotFoundException;
-use Api\Infrastructure\CarRental\Repository\CarRentalRepository;
+use Api\Infrastructure\CarRental\Repository\EloquentCarRentalRepository;
 
 class DeleteCarRentalHandler
 {
     public function __construct(
-        private CarRentalRepository $repository
+        private EloquentCarRentalRepository $repository
     ) {
 
     }

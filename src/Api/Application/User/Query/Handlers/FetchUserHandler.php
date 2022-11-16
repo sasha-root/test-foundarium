@@ -5,12 +5,12 @@ namespace Api\Application\User\Query\Handlers;
 use Api\Application\User\Query\Queries\FetchUserQuery;
 use Api\Application\User\Query\Views\UserView;
 use Api\Domain\User\Exception\UserNotFoundException;
-use Api\Infrastructure\User\Repository\UserRepository;
+use Api\Infrastructure\User\Repository\EloquentUserRepository;
 
 class FetchUserHandler
 {
     public function __construct(
-        private UserRepository $repository
+        private EloquentUserRepository $repository
     ) {
 
     }

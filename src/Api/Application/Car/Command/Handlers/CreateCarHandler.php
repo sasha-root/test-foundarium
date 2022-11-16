@@ -2,10 +2,10 @@
 
 namespace Api\Application\Car\Command\Handlers;
 
+use Api\Domain\Car\Repository\CarRepository;
 use Api\Application\Car\Command\Commands\CreateCarCommand;
 use Api\Application\Car\Query\Views\CarView;
 use Api\Domain\Car\Model\Car;
-use Api\Infrastructure\Car\Repository\CarRepository;
 
 class CreateCarHandler
 {

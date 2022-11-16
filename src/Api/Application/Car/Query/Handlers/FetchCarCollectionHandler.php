@@ -4,12 +4,12 @@ namespace Api\Application\Car\Query\Handlers;
 
 use Api\Application\Car\Query\Collection\CarCollection;
 use Api\Application\Car\Query\Queries\FetchCarCollectionQuery;
-use Api\Infrastructure\Car\Repository\CarRepository;
+use Api\Infrastructure\Car\Repository\EloquentCarRepository;
 
 class FetchCarCollectionHandler
 {
     public function __construct(
-        private CarRepository $repository
+        private EloquentCarRepository $repository
     ) {
 
     }
