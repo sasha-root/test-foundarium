@@ -44,18 +44,18 @@ class ApiExceptionRenderMiddleware
             /** @var ValidationException $ve */
             $ve = $e;
             $data = [
-                'data' => null,
-                'status' => $status,
-                'message' => $e->getMessage(),
-                'errors' => $ve->errors()
-            ];
-        } else {
-            $data = [
-                'data' => null,
                 'errors' => [
                     'status' => $status,
                     'message' => $e->getMessage(),
-                    'trace' => (env('APP_DEBUG', 'true') == true) ? $e->getTraceAsString() : null
+                    'list' => $ve->errors()
+                ]
+            ];
+        } else {
+            $data = [
+                'errors' => [
+                    'status' => $status,
+                    'message' => $e->getMessage(),
+                    'trace' => env('APP_DEBUG', 'true') ? $e->getTraceAsString() : null
                 ]
             ];
         }
