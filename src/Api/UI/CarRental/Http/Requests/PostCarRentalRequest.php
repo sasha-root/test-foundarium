@@ -24,7 +24,7 @@ class PostCarRentalRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'user_id.unique' => 'The user is already driving the car',
