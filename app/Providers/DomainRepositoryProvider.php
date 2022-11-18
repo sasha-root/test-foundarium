@@ -24,6 +24,11 @@ class DomainRepositoryProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+            \Api\Domain\Common\Repository\BaseRepository::class,
+            \Api\Infrastructure\Common\Repository\EloquentRepository::class
+        );
+
+        $this->app->bind(
             \Api\Domain\User\Repository\UserRepository::class,
             \Api\Infrastructure\User\Repository\EloquentUserRepository::class
         );
